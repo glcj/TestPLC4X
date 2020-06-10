@@ -1,0 +1,6 @@
+Require-Capability: osgi.extender;
+      filter:="(osgi.extender=osgi.serviceloader.processor)",
+    osgi.serviceloader;
+      filter:="(osgi.serviceloader=org.apache.plc4x.java.spi.transport.Transport)";
+      cardinality:=multiple
+

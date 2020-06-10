@@ -1,0 +1,4 @@
+com\ceos\merlot\testplc4xosgiway\impl\MyS7Impl.class
+com\ceos\merlot\testplc4xosgiway\impl\MyModbusImpl.class
+com\ceos\merlot\testplc4xosgiway\api\MyService.class
+com\ceos\merlot\testplc4xosgiway\command\MyCommand.class

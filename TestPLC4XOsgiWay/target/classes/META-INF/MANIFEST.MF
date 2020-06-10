@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1591766919176
+Build-Jdk: 11.0.4
+Built-By: cgarcia
+Bundle-Blueprint: OSGI-INF/blueprint/my-service.xml
+Bundle-Description: TestPLC4XOsgiWay OSGi blueprint bundle project.
+Bundle-ManifestVersion: 2
+Bundle-Name: TestPLC4XOsgiWay Blueprint Bundle
+Bundle-SymbolicName: TestPLC4XOsgiWay
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.ceos.merlot.testplc4xosgiway.api;version="0.0.1.SNAP
+ SHOT",com.ceos.merlot.testplc4xosgiway.command;version="0.0.1.SNAPSHOT"
+ ;uses:="org.apache.karaf.shell.api.action,org.apache.karaf.shell.api.ac
+ tion.lifecycle",com.ceos.merlot.testplc4xosgiway.impl;version="0.0.1.SN
+ APSHOT";uses:="com.ceos.merlot.testplc4xosgiway.api"
+Export-Service: com.ceos.merlot.testplc4xosgiway.api.MyService;osgi.serv
+ ice.blueprint.compname=serviceBean
+Import-Package: org.apache.plc4x.java.spi.transport;version="[0.8,1)",or
+ g.apache.plc4x.java.api;version="[0.8,1)",org.apache.plc4x.java.api.mes
+ sages;version="[0.8,1)",org.apache.plc4x.java.api.types;version="[0.8,1
+ )",com.ceos.merlot.testplc4xosgiway.api;version="[0.0,1)",org.apache.ka
+ raf.shell.api.action;version="[4.2,5)",org.apache.karaf.shell.api.actio
+ n.lifecycle;version="[4.2,5)",org.osgi.framework;version="[1.8,2)",org.
+ osgi.service.blueprint;version="[1.0.0,2.0.0)"
+Karaf-Commands: com.ceos.merlot.testplc4xosgiway.command*
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+SPI-Consumer: *
+Tool: Bnd-4.2.0.201903051501
