@@ -47,21 +47,7 @@ public class MyCommand implements Action {
     
     @Override
     public Object execute() throws Exception {
-        System.out.println("Name: " + trans.getTransportName());
-        System.out.println("Code: " +trans.getTransportCode());
-        
 
-        /*
-        
-        Optional<Transport> optTransport = ldr.findFirst();
-        if (optTransport.isPresent()){
-            System.out.println("Name: " + optTransport.get().getTransportName());
-            System.out.println("Code: " + optTransport.get().getTransportCode());
-        } else {
-            System.out.println("Transport not found...");
-        }
-        */
-        
         String filter = "(&(" + org.osgi.framework.Constants.OBJECTCLASS + "=org.apache.plc4x.java.api.PlcDriver)" +
                         "(org.apache.plc4x.driver.code=" + code + "))";  
         
@@ -72,9 +58,6 @@ public class MyCommand implements Action {
             ServiceReference ref = refs[0];
             System.out.println("Find driver service: " + ref.getProperty("org.apache.plc4x.driver.name"));
             PlcDriver theDriver = (PlcDriver) bc.getService(ref);
-            
-            //ClassLoader tccl = Thread.currentThread().getContextClassLoader();
-            //Thread.currentThread().setContextClassLoader(bc.getBundle().adapt(BundleWiring.class).getClassLoader());
 
             ServiceLoader<Transport> transports = ServiceLoader.load(Transport.class);
             for (Transport transport : transports) {
@@ -83,9 +66,7 @@ public class MyCommand implements Action {
             }            
             
             PlcConnection plcConnection = theDriver.getConnection(url);
-            
-            //Thread.currentThread().setContextClassLoader(tccl);
-            
+                        
             PlcReadRequest.Builder builder = plcConnection.readRequestBuilder();
             builder.addItem("handler",tag); 
             PlcReadRequest readRequest = builder.build();
