@@ -18,9 +18,13 @@
 -->
 <features name="TestPLC4XFeature-0.0.1-SNAPSHOT" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
 
+    
     <feature name='TestPLC4XFeature' description='TestPLC4XFeature-feature' version='0.0.1-SNAPSHOT'>
         <details>TestPLC4XFeature details</details>
         <details>Implementation of the protocol adapters for usage as Java library.</details>
+        
+        <feature>aries-blueprint</feature>
+        
         <bundle>mvn:org.apache.plc4x/plc4j-osgi/0.8.0-SNAPSHOT</bundle>
         <bundle>mvn:org.osgi/osgi.core/6.0.0</bundle>
         <bundle>mvn:org.apache.plc4x/plc4j-api/0.8.0-SNAPSHOT</bundle>
@@ -51,14 +55,13 @@
         <bundle>mvn:org.ow2.asm/asm-tree/8.0.1</bundle>
         <bundle>mvn:org.ow2.asm/asm-commons/8.0.1</bundle>
         <bundle>mvn:org.ow2.asm/asm-analysis/8.0.1</bundle>
-        <!--
-        <bundle>mvn:biz.aQute.bnd/aQute.libg/5.0.1</bundle>
-        <bundle>mvn:biz.aQute.bnd/biz.aQute.bndlib/5.0.1</bundle>
-        -->
-        <bundle>mvn:org.apache.aries.spifly/org.apache.aries.spifly.weaver-internal/1.3.0</bundle> 
-        <bundle>mvn:org.apache.aries.spifly/org.apache.aries.spifly.core-internal/1.3.0</bundle>                         
 
-        <bundle>mvn:org.apache.aries.spifly/org.apache.aries.spifly.dynamic.bundle/1.3.0</bundle>        
+	<bundle>wrap:mvn:org.apache.aries.spifly/org.apache.aries.spifly.weaver-internal/1.3.0/$Export-Package=*;version=&quot;1.3.0&quot;,!*</bundle>          
+        <bundle>wrap:mvn:org.apache.aries.spifly/org.apache.aries.spifly.core-internal/1.3.0/$Export-Package=*;version=&quot;1.3.0&quot;,!*</bundle>          
+        <bundle>mvn:org.apache.aries.spifly/org.apache.aries.spifly.dynamic.bundle/1.3.0</bundle>   
+        
+	<bundle>wrap:mvn:com.ceos.merlot/TestPLC4XOsgiWay/0.0.1-SNAPSHOT/$Export-Package=*;version=&quot;0.0.1-SNAPSHOT&quot;,!*</bundle>        
+
         
     </feature>
 

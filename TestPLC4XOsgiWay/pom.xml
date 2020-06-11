@@ -46,10 +46,7 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <Export-Package>com.ceos.merlot.testplc4xosgiway*;version=${project.version}</Export-Package>
-                        <Import-Package>org.apache.plc4x.java.spi.transport,
-                            org.apache.plc4x.java.*,
-                            *
-                        </Import-Package>
+                        <Import-Package>*</Import-Package>
                         <Karaf-Commands>com.ceos.merlot.testplc4xosgiway.command*</Karaf-Commands>                        
                     </instructions>
                 </configuration>
